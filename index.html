@@ -4,7 +4,7 @@
 </a><a href=mailto:lzh.sha@outlook.com target=_blank rel="noopener noreferrer me" title=Email><svg viewBox="0 0 24 21" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1.0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1.0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
 </a><a href=/index.xml target=_blank rel="noopener noreferrer me" title=RSS><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11a9 9 0 019 9"/><path d="M4 4a16 16 0 0116 16"/><circle cx="5" cy="19" r="1"/></svg></a></div></footer></article><article class=post-entry><header class=entry-header><h2 class=entry-hint-parent>从 CSP 到 G-M-P：Go 并发全攻略</h2></header><div class=entry-content><p>并发程序一向难以正确实现，数据竞争、死锁、活锁、资源泄露、难以重现的并发问题等长期以来都是多线程开发的一大挑战。
 Go 语言通过 Goroutine 和 Channel，提供了一套设计优雅、心智负担极低的并发模型，极大地简化了并发功能开发。然而，如果我们对 Go 的并发模块一知半解，缺乏深入完整的认识，即便在 AI 编程助手的强力加持下，往往也难以顺利完成并发功能的开发和维护。
-本文致力于全方位介绍 Go 语言并发的核心机制、最佳实践和常用模式，希望帮助大家掌握并发编程的核心知识，高效应用到实际项目中。
+本文沿 CSP 理论到 G‑M‑P 调度的脉络展开，致力于全方位介绍 Go语言并发的核心机制、最佳实践和常用模式，希望帮助大家掌握并发编程的核心知识，高效应用到实际项目中。
 并发模型本质 并发与并行 在深入 Go 的并发世界之前，我们需要理清两个经常被混淆的概念。
 并发（Concurrency）是代码的结构属性，指程序被设计为能够同时处理多个任务，即使这些任务可能不是真正同时执行的。
 并行（Parallelism）是程序的运行属性，指程序在某个特定时刻是否有多个任务真正同时在不同的处理单元上执行。
