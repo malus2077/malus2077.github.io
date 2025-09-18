@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Alan'Log</title><link>https://malus2077.github.io/</link><description>Recent content on Alan'Log</description><generator>Hugo -- 0.150.0</generator><language>zh-cn</language><lastBuildDate>Mon, 08 Sep 2025 12:06:15 +0800</lastBuildDate><atom:link href="https://malus2077.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>从 CSP 到 G-M-P：Go 并发全攻略</title><link>https://malus2077.github.io/posts/concurrency-in-go/</link><pubDate>Mon, 08 Sep 2025 12:06:15 +0800</pubDate><guid>https://malus2077.github.io/posts/concurrency-in-go/</guid><description>&lt;p&gt;并发程序一向难以正确实现，数据竞争、死锁、活锁、资源泄露、难以重现的并发问题等长期以来都是多线程开发的一大挑战。&lt;/p&gt;
 &lt;p&gt;Go 语言通过 Goroutine 和 Channel，提供了一套设计优雅、心智负担极低的并发模型，极大地简化了并发功能开发。然而，如果我们对 Go 的并发模块一知半解，缺乏深入完整的认识，即便在 AI 编程助手的强力加持下，往往也难以顺利完成并发功能的开发和维护。&lt;/p&gt;
-&lt;p&gt;本文沿 CSP 理论到 G‑M‑P 调度的脉络展开，致力于全方位介绍 Go语言并发的核心机制、最佳实践和常用模式，希望帮助大家掌握并发编程的核心知识，高效应用到实际项目中。&lt;/p&gt;
+&lt;p&gt;本文沿 CSP 理论到 G‑M‑P 调度的脉络展开，致力于全方位介绍 Go 语言并发的核心机制、最佳实践和常用模式，希望帮助大家掌握并发编程的核心知识，高效应用到实际项目中。&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id="并发模型本质"&gt;并发模型本质&lt;/h2&gt;
 &lt;h3 id="并发与并行"&gt;并发与并行&lt;/h3&gt;
@@ -20,8 +20,7 @@
 &lt;p&gt;从高层抽象（应用并发模型）向下层（系统线程）移动时，并发问题变得更加难以理解和处理。高层抽象简化了问题处理，让我们可以忽略底层复杂性。&lt;/p&gt;
 &lt;h3 id="抽象层级提升"&gt;抽象层级提升&lt;/h3&gt;
 &lt;p&gt;传统并发模型的主要问题在于其抽象层次过低，停滞在系统线程层级，迫使开发者与数据竞争、死锁等问题纠缠，在这一较低且充满挑战的抽象层级上挣扎。&lt;/p&gt;
-&lt;p&gt;Go 的设计源于 Hoare 的 CSP（通信顺序进程）模型设计理念，在系统线程之上引入
-Goroutine（协程）抽象层，通过提升抽象层次，取代了对系统线程的直接操作，从而极大地降低了并发编程的复杂性和错误率。&lt;/p&gt;
+&lt;p&gt;Go 的设计源于 Hoare 的 CSP（通信顺序进程）模型设计理念，在系统线程之上引入 Goroutine（协程）抽象层，通过提升抽象层次，取代了对系统线程的直接操作，从而极大地降低了并发编程的复杂性和错误率。&lt;/p&gt;
 &lt;hr&gt;
 &lt;h2 id="cspgo-并发的理论基础"&gt;CSP：Go 并发的理论基础&lt;/h2&gt;
 &lt;h3 id="起源与核心思想"&gt;起源与核心思想&lt;/h3&gt;

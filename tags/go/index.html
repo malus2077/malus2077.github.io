@@ -2,7 +2,7 @@
 <svg id="moon" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z"/></svg>
 <svg id="sun" width="24" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg></button></div></div><ul id=menu><li><a href=https://malus2077.github.io/posts/ title=Posts><span>Posts</span></a></li><li><a href=https://malus2077.github.io/archives/ title=Archive><span>Archive</span></a></li><li><a href=https://malus2077.github.io/search/ title="Search (Alt + /)" accesskey=/><span>Search</span></a></li><li><a href=https://malus2077.github.io/tags/ title=Tags><span>Tags</span></a></li></ul></nav></header><main class=main><header class=page-header><div class=breadcrumbs><a href=https://malus2077.github.io/>Home</a>&nbsp;»&nbsp;<a href=https://malus2077.github.io/tags/>Tags</a></div><h1>Go</h1></header><article class="post-entry tag-entry"><header class=entry-header><h2 class=entry-hint-parent>从 CSP 到 G-M-P：Go 并发全攻略</h2></header><div class=entry-content><p>并发程序一向难以正确实现，数据竞争、死锁、活锁、资源泄露、难以重现的并发问题等长期以来都是多线程开发的一大挑战。
 Go 语言通过 Goroutine 和 Channel，提供了一套设计优雅、心智负担极低的并发模型，极大地简化了并发功能开发。然而，如果我们对 Go 的并发模块一知半解，缺乏深入完整的认识，即便在 AI 编程助手的强力加持下，往往也难以顺利完成并发功能的开发和维护。
-本文沿 CSP 理论到 G‑M‑P 调度的脉络展开，致力于全方位介绍 Go语言并发的核心机制、最佳实践和常用模式，希望帮助大家掌握并发编程的核心知识，高效应用到实际项目中。
+本文沿 CSP 理论到 G‑M‑P 调度的脉络展开，致力于全方位介绍 Go 语言并发的核心机制、最佳实践和常用模式，希望帮助大家掌握并发编程的核心知识，高效应用到实际项目中。
 并发模型本质 并发与并行 在深入 Go 的并发世界之前，我们需要理清两个经常被混淆的概念。
 并发（Concurrency）是代码的结构属性，指程序被设计为能够同时处理多个任务，即使这些任务可能不是真正同时执行的。
 并行（Parallelism）是程序的运行属性，指程序在某个特定时刻是否有多个任务真正同时在不同的处理单元上执行。
@@ -15,7 +15,7 @@ CSP：Go 并发的理论基础 起源与核心思想 CSP（通信顺序进程，
 CSP 的核心理念是让多个独立进程通过消息传递进行通信，而非直接共享状态。这种设计将并发问题从复杂的"锁与内存一致性"转化为直观的"消息与时序"问题。
 工程化实践 Go 语言将 CSP 核心思想融入语言内核，作为内建特性而非外部库实现。这意味着：
 运行时深度优化：Go 运行时可以对 CSP 模式进行深层性能优化 编译器静态检查：Channel 的类型安全特性在编译阶段就能发现错误 开发者快捷易用：开发者可以直接使用并发原语，无需另行学习复杂的外部 API Go 语言提供三大核心并发原语，它们是 CSP 思想在工程上的完美实践：
-...</p></div><footer class=entry-footer><span title='2025-09-08 12:06:15 +0800 CST'>8 Sep 2025</span>&nbsp;·&nbsp;14 min</footer><a class=entry-link aria-label="post link to 从 CSP 到 G-M-P：Go 并发全攻略" href=https://malus2077.github.io/posts/concurrency-in-go/></a></article></main><footer class=footer><span>&copy; 2025 <a href=https://malus2077.github.io/>Alan'Log</a></span> ·
+...</p></div><footer class=entry-footer><span title='2025-09-08 12:06:15 +0800 CST'>8 Sep 2025</span>&nbsp;·&nbsp;15 min</footer><a class=entry-link aria-label="post link to 从 CSP 到 G-M-P：Go 并发全攻略" href=https://malus2077.github.io/posts/concurrency-in-go/></a></article></main><footer class=footer><span>&copy; 2025 <a href=https://malus2077.github.io/>Alan'Log</a></span> ·
 <span>Powered by
 <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a> &
 <a href=https://github.com/adityatelange/hugo-PaperMod/ rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)" class=top-link id=top-link accesskey=g><svg viewBox="0 0 12 6" fill="currentColor"><path d="M12 6H0l6-6z"/></svg>
